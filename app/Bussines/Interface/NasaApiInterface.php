@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Interface;
+namespace App\Bussines\Interface;
 
 interface NasaApiInterface{
     public function fetchData(string $endpoint): array;
