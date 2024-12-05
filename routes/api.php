@@ -8,3 +8,6 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // })->middleware('auth:sanctum');
 Route::get('nasa/intrumentos',[NasaController::class,'getIntruments']);
+Route::get('nasa/activityIDs',[NasaController::class,'getActivityId']);
+Route::get('nasa/instrument-usage', [NasaController::class, 'getInstrumentoPorcentaje']);
+

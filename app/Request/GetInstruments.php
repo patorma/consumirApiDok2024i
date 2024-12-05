@@ -14,8 +14,9 @@ class GetInstruments{
 
     public function execute(): array
     {
-        $endpoints = ['IPS', 'HSS', 'GST']; // Rutas de DONKI
-        $instruments = [];
+      //  $endpoints = ['IPS', 'HSS', 'GST','CME','RBE','FLR','MPC','SEP'];
+      $endpoints = ['IPS', 'HSS', 'GST','CME'];
+      $instruments = [];
 
         foreach ($endpoints as $endpoint) {
             $data = $this->nasaApiInterface->fetchData($endpoint);
@@ -28,7 +29,37 @@ class GetInstruments{
                 }
             }
         }
+// $uniqueIds = array_values(array_unique($activityIds));
+     $uniqueInstruments = array_values(array_unique($instruments));
+        return $uniqueInstruments;
+    }
 
-        return array_unique($instruments);
+    public function captureId()
+    {
+        $endpoints = ['IPS', 'HSS', 'GST','CME'];
+        $activityIds = []; // Aquí se almacenarán los IDs
+
+        foreach ($endpoints as $endpoint) {
+            // Obtén los datos de cada endpoint
+            $data = $this->nasaApiInterface->fetchData($endpoint);
+     //dd($data);
+            // Itera sobre cada actividad
+            foreach ($data as $item) {
+                // Verifica si la clave 'activityID' existe
+                if (isset($item['activityID'])) {
+                    $filteredId = preg_replace('/^[^T]*T[^-]*-/', '', $item['activityID']);
+                $activityIds[] = $filteredId;
+                }
+            }
+            //dd($endpoint);
+        }
+
+        // Elimina IDs duplicados
+        $uniqueIds = array_values(array_unique($activityIds));
+
+        // Depura los resultados (puedes quitar esto en producción)
+        // dd($uniqueIds);
+
+        return $uniqueIds;
     }
 }
