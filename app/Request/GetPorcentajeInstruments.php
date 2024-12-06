@@ -3,11 +3,13 @@
 namespace App\Request;
 
 use App\Bussines\Interface\NasaApiInterface;
+use App\Bussines\LlamarApi;
 
 class GetPorcentajeInstruments{
 
 
     private NasaApiInterface $nasaApiInterface;
+    private LlamarApi $llamada;
 
     public function __construct(NasaApiInterface $nasaApiInterface){
         $this->nasaApiInterface =$nasaApiInterface;
