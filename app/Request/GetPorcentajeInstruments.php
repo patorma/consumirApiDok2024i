@@ -36,7 +36,7 @@ class GetPorcentajeInstruments{
         foreach ($instrumentCounts as $instrument => $count) {
             $instrumentUsage[$instrument] = round($count / $totalInstruments, 1);
         }
-
+//dd($instrumentUsage);
         return $instrumentUsage;
      }
 }

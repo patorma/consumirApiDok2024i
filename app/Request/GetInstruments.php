@@ -2,64 +2,46 @@
 
 namespace App\Request;
 
-use App\Bussines\Interface\NasaApiInterface;
+
+use App\Bussines\LlamarApi;
 
 class GetInstruments{
 
-    private NasaApiInterface $nasaApiInterface;
 
-    public function __construct(NasaApiInterface $nasaApiInterface){
-       $this->nasaApiInterface =$nasaApiInterface;
+    private LlamarApi $llamada;
+    public function __construct(LlamarApi $llamada){
+       $this->llamada = $llamada;
     }
 
     public function execute(): array
     {
-      //  $endpoints = ['IPS', 'HSS', 'GST','CME','RBE','FLR','MPC','SEP'];
+
       $endpoints = ['IPS', 'HSS', 'GST','CME'];
-      $instruments = [];
 
-        foreach ($endpoints as $endpoint) {
-            $data = $this->nasaApiInterface->fetchData($endpoint);
-
-            foreach ($data as $item) {
-                if (isset($item['instruments'])) {
-                    foreach ($item['instruments'] as $instrument) {
-                        $instruments[] = $instrument['displayName'];
-                    }
-                }
+      $elements = $this->llamada->obtenerEndpoints($endpoints,function($item,&$results){
+        if (isset($item['instruments'])){
+            foreach ($item['instruments'] as $instrument) {
+                $results[] = $instrument['displayName'];
             }
         }
-// $uniqueIds = array_values(array_unique($activityIds));
-     $uniqueInstruments = array_values(array_unique($instruments));
-        return $uniqueInstruments;
+      });
+      return $elements;
+
+
+
     }
 
     public function captureId()
     {
         $endpoints = ['IPS', 'HSS', 'GST','CME'];
-        $activityIds = []; // Aquí se almacenarán los IDs
 
-        foreach ($endpoints as $endpoint) {
-            // Obtén los datos de cada endpoint
-            $data = $this->nasaApiInterface->fetchData($endpoint);
-     //dd($data);
-            // Itera sobre cada actividad
-            foreach ($data as $item) {
-                // Verifica si la clave 'activityID' existe
-                if (isset($item['activityID'])) {
-                    $filteredId = preg_replace('/^[^T]*T[^-]*-/', '', $item['activityID']);
-                $activityIds[] = $filteredId;
-                }
+        $elements =$this->llamada->obtenerEndpoints($endpoints,function($item, &$results){
+            if (isset($item['activityID'])) {
+                $filteredId = preg_replace('/^[^T]*T[^-]*-/', '', $item['activityID']);
+                $results[] = $filteredId;
             }
-            //dd($endpoint);
-        }
+        });
+        return $elements;
 
-        // Elimina IDs duplicados
-        $uniqueIds = array_values(array_unique($activityIds));
-
-        // Depura los resultados (puedes quitar esto en producción)
-        // dd($uniqueIds);
-
-        return $uniqueIds;
     }
 }

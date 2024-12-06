@@ -9,5 +9,5 @@ use Illuminate\Support\Facades\Route;
 // })->middleware('auth:sanctum');
 Route::get('nasa/intrumentos',[NasaController::class,'getIntruments']);
 Route::get('nasa/activityIDs',[NasaController::class,'getActivityId']);
-Route::get('nasa/instrument-usage', [NasaController::class, 'getInstrumentoPorcentaje']);
-
+Route::get('nasa/instrument-porcentaje', [NasaController::class, 'getInstrumentoPorcentaje']);
+Route::post('nasa/instrument-activity',[NasaController::class,'getInstrumentoPorcentajeById']);
