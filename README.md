@@ -7,12 +7,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p> 
 
-## Consumo de Api de la Nasa - DOKI
+# Consumo de Api de la Nasa - DOKI
 
-_Este proyecto corresponde alDesafío técnico Chilepasajes - Laravel _
+ _Este proyecto corresponde alDesafío técnico Chilepasajes - Laravel. Este proyecto fue hecho en PHP 8.4.1 con Laravel 11 _
+ 
+### Pre-requisitos 
+_Que cosas necesitas para instalar el software y como instalarlas?_
+Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framework laravel 11 en particular en este proyecto se ocupo el IDE Visual Studio. Se necesita tener instalado postman para hacer las pruebas de peticiones a la  API de la nasa. Además se debe tener instalado composer (revisar en internet requisitos para instalar laravel 11 para más detalle), una vbez que se clona el proyecto en el archivo .env  se debe crear las variables de entorno : NASA_API_KEY = api_key_generada_nasa  con una key que se genera en la pagina https://api.nasa.gov/  se debe ir donde dice Generate API Key y llenar el formulario con los datos que pide y llegara al mail una clave que se genera ya que se necesita esta key para conectarse al proyecto DOKI de la nasa. Luergo se debe crear otra variable  de entorno llamada NASA_URL= https://api.nasa.gov/DONKI/ para evitar copiar la url en cada metodo o clase del código. Se necesita instalar una vez que se clona el proyecto la libreria guzzlehttp/guzzle para facilitar la conexion a API externas y hacer más dinamico el proceso de consumo de las api. 
 
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- 0[Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
 - Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
