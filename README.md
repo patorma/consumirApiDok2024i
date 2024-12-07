@@ -22,8 +22,34 @@ Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framewo
 4. Para evitar hacer redundancia al repetir codigo de la direccón se debe crear una variable global (se puede poner el nombre que se quiera) en mi caso se llama {{base_url}}=localhost:8000/api
 5. En la url se debe poner la siguiente dirección: {{base_url_nasa}}nasa/intrumentos donde se obtendrá el siguiente resultado:
 
-   
-
+           {
+               "instruments": [
+        {
+            "name_instrument": "ACE: MAG"
+        },
+        {
+            "name_instrument": "ACE: SWEPAM"
+        },
+        {
+            "name_instrument": "DSCOVR: PLASMAG"
+        },
+        {
+            "name_instrument": "STEREO A: IMPACT"
+        },
+        {
+            "name_instrument": "STEREO A: PLASTIC"
+        },
+        {
+            "name_instrument": "STEREO A: SECCHI/COR2"
+        },
+        {
+            "name_instrument": "SOHO: LASCO/C2"
+        },
+        {
+            "name_instrument": "SOHO: LASCO/C3"
+        }
+           ]
+           }
   
 - 0[Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
