@@ -19,7 +19,7 @@ class NasaService implements NasaApiInterface{
         $response = $this->client->get(env('NASA_URL').$endpoint,[
             'query' => ['api_key' => env('NASA_API_KEY')]
         ]);
- //dd(json_decode($response->getBody()->getContents(), true));
+
         return json_decode($response->getBody()->getContents(), true);
     }
 }

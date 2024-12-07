@@ -23,14 +23,14 @@ class GetPorcentajeInstruments{
             // Obtén los datos del endpoint
             $data = $this->repository->fetchData($endpoint);
 
-            // Itera sobre cada actividad
+
             foreach ($data as $item) {
                 if (isset($item['instruments'])) {
                     foreach ($item['instruments'] as $instrument) {
-                        // Extrae el nombre del instrumento
+
                         $name = $instrument['displayName'] ?? null;
                         if ($name) {
-                            // Incrementa el contador del instrumento
+
                             $instrumentCounts[$name] = ($instrumentCounts[$name] ?? 0) + 1;
                             $totalInstruments++; // Incrementa el total general
                         }
@@ -39,9 +39,10 @@ class GetPorcentajeInstruments{
             }
         }
 
-        // Calcula los porcentajes
+
         $instrumentUsage = [];
         foreach ($instrumentCounts as $instrument => $count) {
+
             $instrumentUsage[$instrument] =round($count / $totalInstruments,2);
         }
 
