@@ -50,7 +50,21 @@ Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framewo
         }
            ]
            }
-  
+  6. Para obtener muestre todas las IDS de actividades existentes sin mostrar todo lo que tiene que ver con la fecha se debe ir a postman e indicar que se quiere obtener un request tipo GET  y colocar en la url la siguiente dirección: {{base_url_nasa}}nasa/activityIDs obteniendo el siguiente resultado:
+
+                 {
+               
+                     "activityIDs": [
+                        {
+                            "activity_id": "IPS-001"
+                        },
+                        {
+                            "activity_id": "CME-001"
+                        }
+                    ]
+                  }
+       
+    
 - 0[Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
