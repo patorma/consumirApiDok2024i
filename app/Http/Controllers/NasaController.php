@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Resources\InstrumentResource;
 use App\Request\GetInstruments;
 use App\Request\GetPorcentajeInstruments;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ class NasaController extends Controller
         $instruments = $getInstruments->execute();
 
         return response()->json([
-            "instruments" =>$instruments
+            "instruments" =>InstrumentResource::collection($instruments)
         ]);
 
 
@@ -34,18 +34,5 @@ class NasaController extends Controller
         return response()->json(['instruments_use' => $usage]);
     }
 
-    // public function getInstrumentoPorcentajeById(Request $request,   GetInstruments $getInstrument){
 
-    //     $validated = $request->validate([
-    //         'instrument' => 'required|string',
-    //     ]);
-    //     $instrumentName = $validated['instrument'];
-
-    //     // Ejecuta el caso de uso para calcular el porcentaje
-    //     $percentage = $getInstrument->pruebaCaprureId($instrumentName);
-    //     return response()->json([
-    //         'instrument' => $instrumentName,
-    //         'percentage' => round($percentage, 4), // Redondear a 4 decimales
-    //     ]);
-    // }
 }

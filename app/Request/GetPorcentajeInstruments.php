@@ -20,7 +20,7 @@ class GetPorcentajeInstruments{
         $totalInstruments = 0;
 
         foreach ($endpoints as $endpoint) {
-            // Obtén los datos del endpoint
+
             $data = $this->repository->fetchData($endpoint);
 
 
@@ -32,7 +32,7 @@ class GetPorcentajeInstruments{
                         if ($name) {
 
                             $instrumentCounts[$name] = ($instrumentCounts[$name] ?? 0) + 1;
-                            $totalInstruments++; // Incrementa el total general
+                            $totalInstruments++;
                         }
                     }
                 }

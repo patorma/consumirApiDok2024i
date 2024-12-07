@@ -10,4 +10,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('nasa/intrumentos',[NasaController::class,'getIntruments']);
 Route::get('nasa/activityIDs',[NasaController::class,'getActivityId']);
 Route::get('nasa/instrument-porcentaje', [NasaController::class, 'getInstrumentoPorcentaje']);
-Route::post('nasa/instrument-activity',[NasaController::class,'getInstrumentoPorcentajeById']);
