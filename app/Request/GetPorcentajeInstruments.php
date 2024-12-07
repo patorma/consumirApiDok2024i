@@ -10,19 +10,18 @@ class GetPorcentajeInstruments{
 
     private NasaApiInterface $nasaApiInterface;
     private LlamarApi $llamada;
-
-    public function __construct(NasaApiInterface $nasaApiInterface){
+    public function __construct(NasaApiInterface $nasaApiInterface,LlamarApi $llamada){
         $this->nasaApiInterface =$nasaApiInterface;
+        $this->llamada = $llamada;
      }
 
      public function execute(): array{
         $endpoints = ['IPS', 'HSS', 'GST','CME'];
-        $instrumentCounts = [];
+
+        $elements = $this->llamada->obtenerEndpoints($endpoints,function($item,&$results){
+            if (isset($item['instruments'])){
+                $instrumentCounts = [];
         $totalInstruments = 0;
-        foreach ($endpoints as $endpoint) {
-            $data = $this->nasaApiInterface->fetchData($endpoint);
-            foreach ($data as $item) {
-            if (isset($item['instruments'])) {
                 foreach ($item['instruments'] as $instrument){
                     $name = $instrument['displayName'] ?? null;
                     if ($name) {
@@ -32,13 +31,16 @@ class GetPorcentajeInstruments{
                     }
                 }
             }
-        }
-        }
-        $instrumentUsage = [];
-        foreach ($instrumentCounts as $instrument => $count) {
-            $instrumentUsage[$instrument] = round($count / $totalInstruments, 1);
-        }
-//dd($instrumentUsage);
-        return $instrumentUsage;
-     }
+
+           // $instrumentUsage = [];
+            foreach ($instrumentCounts as $instrument => $count) {
+                $results[$instrument] = round($count / $totalInstruments, 1);
+            }
+        });
+
+        return $elements;
+
+
+
+    }
 }
