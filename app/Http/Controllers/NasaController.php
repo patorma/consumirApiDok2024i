@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\ActivityIdResource;
+use App\Http\Resources\InstrumentPorcentajeResource;
 use App\Http\Resources\InstrumentResource;
 use App\Request\GetInstruments;
 use App\Request\GetPorcentajeInstruments;
@@ -24,14 +26,24 @@ class NasaController extends Controller
         $activityIds = $getActivityId->captureId();
 
         return response()->json([
-           "activityIDs" => $activityIds
+           "activityIDs" => ActivityIdResource::collection($activityIds)
         ]);
     }
 
     public function getInstrumentoPorcentaje(GetPorcentajeInstruments $getPorcentajeInstruments){
         $usage = $getPorcentajeInstruments->execute();
 
-        return response()->json(['instruments_use' => $usage]);
+     // Mapear el array para utilizar el recurso InstrumentPercentageResource
+     $mappedUsage = collect($usage)->map(function ($percentage, $instrument) {
+        return [
+            'instrument' => $instrument,
+            'porcentaje' => $percentage,
+        ];
+    })->values();
+
+    return response()->json([
+        'instruments_use' => InstrumentPorcentajeResource::collection($mappedUsage),
+    ]);
     }
 
 
