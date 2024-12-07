@@ -13,8 +13,18 @@
  
 ### Pre-requisitos 
 _Que cosas necesitas para instalar el software y como instalarlas?_
-Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framework laravel 11 en particular en este proyecto se ocupo el IDE Visual Studio. Se necesita tener instalado postman para hacer las pruebas de peticiones a la  API de la nasa. Además se debe tener instalado composer (revisar en internet requisitos para instalar laravel 11 para más detalle), una vbez que se clona el proyecto en el archivo .env  se debe crear las variables de entorno : NASA_API_KEY = api_key_generada_nasa  con una key que se genera en la pagina https://api.nasa.gov/  se debe ir donde dice Generate API Key y llenar el formulario con los datos que pide y llegara al mail una clave que se genera ya que se necesita esta key para conectarse al proyecto DOKI de la nasa. Luergo se debe crear otra variable  de entorno llamada NASA_URL= https://api.nasa.gov/DONKI/ para evitar copiar la url en cada metodo o clase del código. Se necesita instalar una vez que se clona el proyecto la libreria guzzlehttp/guzzle para facilitar la conexion a API externas y hacer más dinamico el proceso de consumo de las api. 
+Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framework laravel 11 en particular en este proyecto se ocupo el IDE Visual Studio. Se necesita tener instalado postman para hacer las pruebas de peticiones a la  API de la nasa. Además se debe tener instalado composer (revisar en internet requisitos para instalar laravel 11 para más detalle), una vbez que se clona el proyecto se debe modificar el archivo .env  donde se debe crear las variables de entorno : NASA_API_KEY = api_key_generada_nasa  con una key que se genera en la pagina https://api.nasa.gov/  se debe ir donde dice Generate API Key y llenar el formulario con los datos que pide y llegara al mail una clave que se genera ya que se necesita esta key para conectarse al proyecto DOKI de la nasa. Luergo se debe crear otra variable  de entorno llamada NASA_URL= https://api.nasa.gov/DONKI/ para evitar copiar la url en cada metodo o clase del código. Se necesita instalar una vez que se clona el proyecto la libreria guzzlehttp/guzzle para facilitar la conexion a API externas y hacer más dinamico el proceso de consumo de las api. 
 
+### Instalación 
+1. Una vez que se descarga el proyecto se debe ejecutar en el IDE  para ello en una consola  se debe ejecutar el comando php artisan serve para echar a correr el proyecto
+2. Se debe ir a postman  y crear una coleccion o importar el archivo .json que se entregue con este repositorio
+3. Se debe indicar un request GET para hacer la petición de que muestre todos los instrumentos usados por DONKI en todas las mediciones de todas las rutas de la API disponibles. Lo antewrior se basa en lo que indicaba los requisitos de la prueba técnica.
+4. Para evitar hacer redundancia al repetir codigo de la direccón se debe crear una variable global (se puede poner el nombre que se quiera) en mi caso se llama {{base_url}}=localhost:8000/api
+5. En la url se debe poner la siguiente dirección: {{base_url_nasa}}nasa/intrumentos donde se obtendrá el siguiente resultado:
+
+   
+
+  
 - 0[Simple, fast routing engine](https://laravel.com/docs/routing).
 - [Powerful dependency injection container](https://laravel.com/docs/container).
 - Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
