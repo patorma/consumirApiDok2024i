@@ -50,7 +50,7 @@ Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framewo
         }
            ]
            }
-  6. Para obtener muestre todas las IDS de actividades existentes sin mostrar todo lo que tiene que ver con la fecha se debe ir a postman e indicar que se quiere obtener un request tipo GET  y colocar en la url la siguiente dirección: {{base_url_nasa}}nasa/activityIDs obteniendo el siguiente resultado:
+  6. Para obtener todas las IDS de actividades existentes sin mostrar todo lo que tiene que ver con la fecha se debe ir a postman e indicar que se quiere obtener un request tipo GET  y colocar en la url la siguiente dirección: {{base_url_nasa}}nasa/activityIDs obteniendo el siguiente resultado:
 
                  {
                
@@ -63,57 +63,61 @@ Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framewo
                         }
                     ]
                   }
-       
-    
-- 0[Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+7. Para obtener porcentaje de uso de cada una de los instrumentos respecto del total de apariciones, en número decimal en postman se debe poner request en GET  y colocar en la url la siguiente dirección: {{base_url_nasa}}nasa/instrument-porcentaje donde se obtiene el siguiente resultado:
+
+        {
+               "instruments_use": [
+        {
+            "instrument": "ACE: MAG",
+            "porcentaje": 0.01
+        },
+        {
+            "instrument": "ACE: SWEPAM",
+            "porcentaje": 0.01
+        },
+        {
+            "instrument": "DSCOVR: PLASMAG",
+            "porcentaje": 0.01
+        },
+        {
+            "instrument": "STEREO A: IMPACT",
+            "porcentaje": 0.01
+        },
+        {
+            "instrument": "STEREO A: PLASTIC",
+            "porcentaje": 0.01
+        },
+        {
+            "instrument": "STEREO A: SECCHI/COR2",
+            "porcentaje": 0.25
+        },
+        {
+            "instrument": "SOHO: LASCO/C2",
+            "porcentaje": 0.37
+        },
+        {
+            "instrument": "SOHO: LASCO/C3",
+            "porcentaje": 0.34
+        }
+        ]
+                  }
+   No hay que registrarse como usuario ya que es una api pública  solo hay que tener cuidado en crear la variable de entorno de la key ya que es requerimiento escencial para conectarse a la  api del proyecto 
+  doki de la nasa.
+
+## Construido con 
+ _Herramientas utilizadas_
+ *[Visual Studio Code](https://code.visualstudio.com/) - El IDE que fue usado para programar el código
+ *[Laravel](https://laravel.com/) - El framework Laravel versión 11.
+ *[php](https://www.php.net/) - El lenguaje es php versión 8.4.1.
+ *[guzzlehttp/guzzle](https://docs.guzzlephp.org/en/stable/) - Libreria que se usa para facilitar el consumo de la api. 
+ 
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+ver a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
