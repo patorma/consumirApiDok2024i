@@ -33,7 +33,7 @@ class NasaController extends Controller
     public function getInstrumentoPorcentaje(GetPorcentajeInstruments $getPorcentajeInstruments){
         $usage = $getPorcentajeInstruments->execute();
 
-     // Mapear el array para utilizar el recurso InstrumentPercentageResource
+
      $mappedUsage = collect($usage)->map(function ($percentage, $instrument) {
         return [
             'instrument' => $instrument,
