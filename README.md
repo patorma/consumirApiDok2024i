@@ -9,7 +9,7 @@
 
 # Consumo de Api de la Nasa - DOKI
 
- _Este proyecto corresponde alDesafío técnico Chilepasajes - Laravel. Este proyecto fue hecho en PHP 8.4.1 con Laravel 11 _
+ _Este proyecto corresponde al Desafío técnico Chilepasajes - Laravel. Este proyecto fue hecho en PHP 8.4.1 con Laravel 11 _
  
 ### Pre-requisitos 
 _Que cosas necesitas para instalar el software y como instalarlas?_
