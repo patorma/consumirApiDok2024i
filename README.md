@@ -19,8 +19,8 @@ Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framewo
 ### Instalación 
 1. Una vez que se descarga el proyecto se debe ejecutar en el IDE  para ello en una consola  se debe ejecutar el comando php artisan serve para echar a correr el proyecto
 2. Se debe ir a postman  y crear una coleccion o importar el archivo .json que se entregue con este repositorio
-3. Se debe indicar un request GET para hacer la petición de que muestre todos los instrumentos usados por DONKI en todas las mediciones de todas las rutas de la API disponibles. Lo antewrior se basa en lo que indicaba los requisitos de la prueba técnica.
-4. Para evitar hacer redundancia al repetir codigo de la direccón se debe crear una variable global (se puede poner el nombre que se quiera) en mi caso se llama {{base_url}}=localhost:8000/api
+3. Se debe indicar un request GET para hacer la petición de que muestre todos los instrumentos usados por DONKI en todas las mediciones de todas las rutas de la API disponibles. Lo anterior se basa en lo que indicaba los requisitos de la prueba técnica.
+4. Para evitar hacer redundancia al repetir codigo de la direccón, se debe crear una variable global (se puede poner el nombre que se quiera) en mi caso se llama {{base_url}}=localhost:8000/api
 5. En la url se debe poner la siguiente dirección: {{base_url_nasa}}nasa/intrumentos donde se obtendrá el siguiente resultado:
 
            {
