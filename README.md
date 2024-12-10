@@ -106,7 +106,9 @@ Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framewo
   donki de la nasa.
 
 ## Construido con 
+
  _Herramientas utilizadas_
+ 
  *[Visual Studio Code](https://code.visualstudio.com/) - El IDE que fue usado para programar el código
  *[Laravel](https://laravel.com/) - El framework Laravel versión 11.
  *[php](https://www.php.net/) - El lenguaje es php versión 8.4.1.
