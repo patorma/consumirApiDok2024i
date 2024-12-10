@@ -103,7 +103,7 @@ Se necesita tener un IDE compatible con PHP versión 8.1 o superior y el framewo
         ]
                   }
    No hay que registrarse como usuario ya que es una api pública  solo hay que tener cuidado en crear la variable de entorno de la key ya que es requerimiento escencial para conectarse a la  api del proyecto 
-  doki de la nasa.
+  donki de la nasa.
 
 ## Construido con 
  _Herramientas utilizadas_
