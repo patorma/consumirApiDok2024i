@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p> 
 
-# Consumo de Api de la Nasa - DOKI
+# Consumo de Api de la Nasa - DONKI
 
  _Este proyecto corresponde al Desafío técnico Chilepasajes - Laravel. Este proyecto fue hecho en PHP 8.4.1 con Laravel 11 _
  
